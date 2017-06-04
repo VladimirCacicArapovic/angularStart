@@ -16,7 +16,6 @@ angular.module('myApp').controller('shoppingList', ["$scope", "$routeParams","$l
         $location.path('/');
     };
     $scope.markItem = function(item){
-        debugger;
         shoppingListService.markItem(item);
     }
 

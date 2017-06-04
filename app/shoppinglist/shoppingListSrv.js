@@ -26,17 +26,16 @@ angular.module('myApp').service('shoppingListService',function () {
     shoppingListService.removeItem = function(item){
         var realItem = shoppingListService.shoppingList.indexOf(item);
         shoppingListService.shoppingList.splice(realItem,1)
-    }
+    };
+
     shoppingListService.save = function (item) {
 
          var updateItem = shoppingListService.findById(item.id);
 
-        debugger;
         if(updateItem){
             _.extend(updateItem,item);
         }else{
-            item.id = shoppingListService.getNewId() ;
-            debugger;
+            item.id = shoppingListService.getNewId();
             shoppingListService.shoppingList.push(item)
         }
 
@@ -47,7 +46,6 @@ angular.module('myApp').service('shoppingListService',function () {
             shoppingListService.newId++;
             return shoppingListService.newId;
         }else{
-            debugger;
             if(shoppingListService.shoppingList.length>0){
                 var newMax = _.max(shoppingListService.shoppingList,function(item){
                     return item.id;
@@ -60,7 +58,6 @@ angular.module('myApp').service('shoppingListService',function () {
         }
     }
     shoppingListService.markItem = function (item) {
-        debugger;
         item.completed = !item.completed;
     }
     
